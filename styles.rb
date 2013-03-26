@@ -1,6 +1,11 @@
 class Sketchup::Styles
     def load(path_or_file_like_object)
         # Not currently (easily) possible
+        if path_or_file_like_object.is_a?(String)
+            # We can already load paths (thanks to @thomthom for pointing out)
+            return add_style(path_or_file_like_object)
+        end
+        # File like objects can't be loaded.
         raise NotImplementedException.new('This feature is not implemented')
     end
     def erase_members!(definition_or_array_of_styles)
