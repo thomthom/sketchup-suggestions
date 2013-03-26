@@ -5,7 +5,7 @@ class Sketchup::Materials
         raise NotImplementedException.new('This feature is not implemented')
     end
 
-    def erase_memebers!(definition_or_array_of_materials)
+    def erase_members!(definition_or_array_of_materials)
         # Bulk erase method. This should (if possible) be more efficient than
         # arr.each() {|d| e.erase! } (and take only one operation)
         definition_or_array_of_materials.each() {|d| d.erase! }

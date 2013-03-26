@@ -1,5 +1,5 @@
 class Sketchup::Layers
-    def erase_memebers!(definition_or_array_of_layers)
+    def erase_members!(definition_or_array_of_layers)
         # Bulk erase method. This should (if possible) be more efficient than
         # arr.each() {|d| e.erase! } (and take only one operation)
         definition_or_array_of_layers.each() {|d| d.erase! }

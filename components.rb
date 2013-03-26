@@ -39,7 +39,7 @@ class Sketchup::ComponentDefinition
 end
 
 class Sketchup::DefinitionList
-    def erase_memebers!(definition_or_array_of_definitions)
+    def erase_members!(definition_or_array_of_definitions)
         # Bulk erase method. This should (if possible) be more efficient than
         # arr.each() {|d| e.erase! } (and take only one operation)
         definition_or_array_of_definitions.each() {|d| d.erase! }
