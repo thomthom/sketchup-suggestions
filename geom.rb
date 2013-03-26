@@ -13,6 +13,13 @@ class Geom::Point3d
         #  key, a.hash == b.hash && a.eql?(b) && b.eql?(a)
         return self == other
     end
+
+    def distance_squared(other)
+        # Sometimes you don't need the actual distance, just a value that
+        # will sort correctly. Such, you can use this method to save yourself
+        # calculating the sqrt
+        return (x - other.x) ** 2 + (y - other.y) ** 2 + (z - other.z) ** 2
+    end
 end
 
 class Array
@@ -50,5 +57,10 @@ class Geom::Vector3d
         v = self.clone
         v.length = length
         return v
+    end
+
+    def length_squared()
+        # Nothing new to note here, see Geom::Point3d#distance_squared
+        return x ** 2 + y ** 2 + z ** 2
     end
 end
