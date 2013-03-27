@@ -29,6 +29,14 @@ class Sketchup::Group
             d.instances.include?(self)
         }
     end
+    
+    def glued_to
+        # Currently missing.
+    end
+    
+    def glued_to=(face)
+        # Currently missing.
+    end
 end
 
 class Sketchup::ComponentInstance
