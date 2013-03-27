@@ -23,19 +23,18 @@ class Geom::Point3d
         return (x - other.x) ** 2 + (y - other.y) ** 2 + (z - other.z) ** 2
     end
     
-    # SketchUp currently haven't implemented #dup - and it's #clone implementation
-    # is doing what #dup should be like.
-    #
-    # @see http://www.jonathanleighton.com/articles/2011/initialize_clone-initialize_dup-and-initialize_copy-in-ruby/
     def dup
+        # SketchUp currently haven't implemented #dup - and it's #clone implementation
+        # is doing what #dup should be like.
+        #
+        # @see http://www.jonathanleighton.com/articles/2011/initialize_clone-initialize_dup-and-initialize_copy-in-ruby/
         self.new(x, y, z)
     end
     
-    # #clone should preserve the singleton class and frozen state of the cloned
-    # object. (As oppose to #dup which should not.)
-    # Both should copy the tainted state.
     def clone
-        # Correctly implement according to standard convention.
+        # #clone should preserve the singleton class and frozen state of the cloned
+        # object. (As oppose to #dup which should not.)
+        # Both should copy the tainted state.
     end
 end
 
@@ -79,13 +78,13 @@ class Geom::Vector3d
         return x ** 2 + y ** 2 + z ** 2
     end
     
-    # @see Geom::Point3d.dup
     def dup
+        # @see Geom::Point3d.dup
         self.new(x, y, z)
     end
     
-    # @see Geom::Point3d.clone
     def clone
+        # @see Geom::Point3d.dup
         # Correctly implement according to standard convention.
     end
 end
