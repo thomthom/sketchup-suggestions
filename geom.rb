@@ -66,10 +66,6 @@ class Geom::Vector3d
         return self == other
     end
 
-    def sameaxis?(other)
-        return self.samedirection?(other) || self.reverse.samedirection?(other)
-    end
-
     def at_length(length)
         # Generally this is an anti-pattern for instance.offset(vector, length)
         # but there are cases where this is useful
