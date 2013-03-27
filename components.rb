@@ -14,8 +14,11 @@ class Sketchup::Image
         # Currently missing.
     end
     
-    def glued_to=(face)
+    def glued_to=(face, instance_in_face_context = nil)
         # Currently missing.
+        #
+        # Also be able to glue entities like SketchUp UI does - on a face inside a group.
+        # Currently the API allow you to only glue to a face in the same context.
     end
 end
 
@@ -34,7 +37,7 @@ class Sketchup::Group
         # Currently missing.
     end
     
-    def glued_to=(face)
+    def glued_to=(face, instance_in_face_context = nil)
         # Currently missing.
     end
 end
