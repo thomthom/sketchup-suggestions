@@ -1,3 +1,24 @@
+class Sketchup::Image
+    def definition()
+        # Images are in reality just and instance of a ComponentDefinition. Not need to
+        # hide this.
+    end
+    
+    def transformation()
+        # It is currently impossible to correctly determine the position of a flipped
+        # image entity. Getting the transformation object would simplify and make things
+        # consistent.
+    end
+    
+    def glued_to
+        # Currently missing.
+    end
+    
+    def glued_to=(face)
+        # Currently missing.
+    end
+end
+
 class Sketchup::Group
     def definition()
         # http://www.thomthom.net/thoughts/2012/02/definitions-and-instances-in-sketchup/
