@@ -69,6 +69,11 @@ class Sketchup::ComponentDefinition
         self.model.definitions.purge_unused
         self.model.erase_entities(saves)
     end
+    
+    def internal=(boolean)
+        # It'd allow for creation of component assemblies and keep the
+        # component browser list clean.
+    end
 end
 
 class Sketchup::DefinitionList
