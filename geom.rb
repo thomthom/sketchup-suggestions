@@ -1,4 +1,5 @@
 class Geom::Point3d
+
     def hash()
         # Ensure that hashes for equal points are unique
         # Also, equal arrays will match (to match the behaviour of ==)
@@ -6,6 +7,7 @@ class Geom::Point3d
         # instance.object_id
         return self.to_a.hash
     end
+    
     def eql?(other)
         # Because the following is weird:
         # Geom::Point3d.new([0,1,2]).eql?(Geom::Point3d.new([0,1,2])) => false
@@ -19,6 +21,21 @@ class Geom::Point3d
         # will sort correctly. Such, you can use this method to save yourself
         # calculating the sqrt
         return (x - other.x) ** 2 + (y - other.y) ** 2 + (z - other.z) ** 2
+    end
+    
+    # SketchUp currently haven't implemented #dup - and it's #clone implementation
+    # is doing what #dup should be like.
+    #
+    # @see http://www.jonathanleighton.com/articles/2011/initialize_clone-initialize_dup-and-initialize_copy-in-ruby/
+    def dup
+        self.new(x, y, z)
+    end
+    
+    # #clone should preserve the singleton class and frozen state of the cloned
+    # object. (As oppose to #dup which should not.)
+    # Both should copy the tainted state.
+    def clone
+        # Correctly implement according to standard convention.
     end
 end
 
@@ -38,10 +55,12 @@ class Array
 end
 
 class Geom::Vector3d
+
     def hash()
         # Nothing new to note here, see Geom::Point3d#hash
         return self.to_a.hash
     end
+    
     def eql?(other)
         # Nothing new to note here, see Geom::Point3d#eql?
         return self == other
@@ -62,5 +81,15 @@ class Geom::Vector3d
     def length_squared()
         # Nothing new to note here, see Geom::Point3d#distance_squared
         return x ** 2 + y ** 2 + z ** 2
+    end
+    
+    # @see Geom::Point3d.dup
+    def dup
+        self.new(x, y, z)
+    end
+    
+    # @see Geom::Point3d.clone
+    def clone
+        # Correctly implement according to standard convention.
     end
 end
