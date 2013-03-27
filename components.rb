@@ -48,6 +48,10 @@ class Sketchup::ComponentInstance
         # more than one instance
         return definition.entities
     end
+    
+    def to_group
+        # Some times one want to convert a component instance to a group.
+    end
 end
 
 class Sketchup::ComponentDefinition
