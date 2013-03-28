@@ -7,6 +7,14 @@ class Sketchup::Layers
 end
 
 class Sketchup::Layer
+    def color
+        # Get layer color.
+    end
+    
+    def color=(color_value)
+        # Set layer color.
+    end
+    
     def erase!(replacement=false)
         # At the moment this is undefined. It should "purge" the layer from
         #    the model.
